@@ -1,0 +1,98 @@
+﻿services:
+  db:
+    image: "postgres:16.3"
+    env_file: ./docker.env
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "Passw0rd!"
+      POSTGRES_DB: "NovahomeDb"
+    # ports:
+    #  - "5432:5432"
+    volumes:
+      - "db:/var/lib/postgresql/data"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  logs:
+    image: "datalust/seq:2024.3"
+    env_file: ./docker.env
+    restart: unless-stopped
+    ports:
+      # - "5341:5341" # ingestion
+      - "5342:80" # web ui
+    volumes:
+      - "logs:/data"
+    healthcheck:
+      test: [ "CMD-SHELL", "timeout 5s bash -c ':> /dev/tcp/127.0.0.1/80' || exit 1" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  auth:
+    image: "quay.io/keycloak/keycloak:25.0.0"
+    env_file: ./docker.env
+    restart: unless-stopped
+    environment:
+      KEYCLOAK_ADMIN: "admin"
+      KEYCLOAK_ADMIN_PASSWORD: "admin"
+      KEYCLOAK_IMPORT: "/opt/keycloak/data/import/novahome-realm.json"
+      KC_DB: "postgres"
+      KC_DB_URL_HOST: "auth_db"
+      KC_DB_USERNAME: "postgres"
+      KC_DB_PASSWORD: "Passw0rd!"
+      KC_HEALTH_ENABLED: "true"
+      KC_METRICS_ENABLED: "true"
+    ports:
+      - "8181:8080"
+    volumes:
+      - "./keycloak-realm.json:/opt/keycloak/data/import/novahome-realm.json"
+    command: [ "start-dev", "--import-realm" ] # add "--log-level=debug" for different logs
+    healthcheck:
+      test: [ "CMD-SHELL", "timeout 5s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      auth_db:
+        condition: service_healthy
+
+  auth_db:
+    image: "postgres:16.3"
+    env_file: ./docker.env
+    environment:
+      POSTGRES_PASSWORD: "Passw0rd!"
+      POSTGRES_DB: "keycloak"
+    volumes:
+      - "auth_db:/var/lib/postgresql/data"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  webapi:
+    image: novahome-webapi
+    env_file: ./docker.env
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: src/Novahome.WebApi/Dockerfile
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=db; Database=NovahomeDb; User Id=postgres; Password=Passw0rd!;"
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+      logs:
+        condition: service_healthy
+      auth:
+        condition: service_healthy
+
+volumes:
+  db:
+  logs:
+  auth_db:

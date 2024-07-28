@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Novahome.Domain", "src\Novahome.Domain\Novahome.Domain.csproj", "{B31E8D09-BF2F-4751-8D44-1F95B3410569}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9023871A-E2CA-4C3C-8876-9FBA0B7612B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{731B4152-D66E-437A-87EB-BCDB00D8CC82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Novahome.Application", "src\Novahome.Application\Novahome.Application.csproj", "{2EA3B4D3-7A13-4983-AFCF-9C7868BC1ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Novahome.Infrastructure", "src\Novahome.Infrastructure\Novahome.Infrastructure.csproj", "{6E530B11-382C-413A-9175-8BD12864978C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Novahome.WebApi", "src\Novahome.WebApi\Novahome.WebApi.csproj", "{5B5CF94B-F266-4BEC-A603-888B142BE70A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6CBAD31E-5088-41D4-A728-AD713BA34228}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Novahome.Application.UnitTests", "tests\Novahome.Application.UnitTests\Novahome.Application.UnitTests.csproj", "{C5DD9222-EB48-4EDC-AB1A-49F06CFF259D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Novahome.TestHelpers", "tests\Novahome.TestHelpers\Novahome.TestHelpers.csproj", "{B2AC7C9F-4A4E-4B17-B77F-1B8AC1F21AD7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B31E8D09-BF2F-4751-8D44-1F95B3410569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31E8D09-BF2F-4751-8D44-1F95B3410569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31E8D09-BF2F-4751-8D44-1F95B3410569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31E8D09-BF2F-4751-8D44-1F95B3410569}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EA3B4D3-7A13-4983-AFCF-9C7868BC1ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA3B4D3-7A13-4983-AFCF-9C7868BC1ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA3B4D3-7A13-4983-AFCF-9C7868BC1ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA3B4D3-7A13-4983-AFCF-9C7868BC1ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E530B11-382C-413A-9175-8BD12864978C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E530B11-382C-413A-9175-8BD12864978C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E530B11-382C-413A-9175-8BD12864978C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E530B11-382C-413A-9175-8BD12864978C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B5CF94B-F266-4BEC-A603-888B142BE70A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B5CF94B-F266-4BEC-A603-888B142BE70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B5CF94B-F266-4BEC-A603-888B142BE70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B5CF94B-F266-4BEC-A603-888B142BE70A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5DD9222-EB48-4EDC-AB1A-49F06CFF259D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5DD9222-EB48-4EDC-AB1A-49F06CFF259D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5DD9222-EB48-4EDC-AB1A-49F06CFF259D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5DD9222-EB48-4EDC-AB1A-49F06CFF259D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2AC7C9F-4A4E-4B17-B77F-1B8AC1F21AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2AC7C9F-4A4E-4B17-B77F-1B8AC1F21AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2AC7C9F-4A4E-4B17-B77F-1B8AC1F21AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2AC7C9F-4A4E-4B17-B77F-1B8AC1F21AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B31E8D09-BF2F-4751-8D44-1F95B3410569} = {9023871A-E2CA-4C3C-8876-9FBA0B7612B4}
+		{2EA3B4D3-7A13-4983-AFCF-9C7868BC1ED8} = {9023871A-E2CA-4C3C-8876-9FBA0B7612B4}
+		{6E530B11-382C-413A-9175-8BD12864978C} = {9023871A-E2CA-4C3C-8876-9FBA0B7612B4}
+		{5B5CF94B-F266-4BEC-A603-888B142BE70A} = {9023871A-E2CA-4C3C-8876-9FBA0B7612B4}
+		{C5DD9222-EB48-4EDC-AB1A-49F06CFF259D} = {731B4152-D66E-437A-87EB-BCDB00D8CC82}
+		{B2AC7C9F-4A4E-4B17-B77F-1B8AC1F21AD7} = {731B4152-D66E-437A-87EB-BCDB00D8CC82}
+	EndGlobalSection
+EndGlobal

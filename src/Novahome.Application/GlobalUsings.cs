@@ -1,0 +1,16 @@
+﻿global using System.Diagnostics;
+global using System.Reflection;
+global using FluentValidation;
+global using FluentValidation.Results;
+global using JetBrains.Annotations;
+global using MediatR;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
+global using Novahome.Application.Common.Behaviours;
+global using Novahome.Application.Common.Exceptions;
+global using Novahome.Application.Common.Interfaces.Persistence;
+global using Novahome.Application.Common.Interfaces.Services;
+global using Novahome.Domain.Entities;
+global using System.Diagnostics.CodeAnalysis;
+global using Novahome.Application.Common.Models;
